@@ -1,0 +1,3 @@
+/home/slepming/Programming/CPP/Monitoring/build-dir/CMakeFiles/monitoring.dir
+/home/slepming/Programming/CPP/Monitoring/build-dir/CMakeFiles/edit_cache.dir
+/home/slepming/Programming/CPP/Monitoring/build-dir/CMakeFiles/rebuild_cache.dir
