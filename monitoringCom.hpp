@@ -6,8 +6,9 @@
 
 class monitoring{
   public:
-  std::string get_metrics_cpu_temp();
+  std::string get_metrics_cpu_temp(std::string* cpu_name);
   std::string get_metrics_cpu_load();
+  std::string get_cpu_name(); // Дает имя процессора, но не его наименование из sensors, что может вызвать путаницу
 
   // gpu
   int get_metrics_gpu_temp();
