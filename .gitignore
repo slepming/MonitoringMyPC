@@ -1,4 +1,10 @@
-./build-dir
+build-dir/
+
+
+*.ini
+
+
+
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
