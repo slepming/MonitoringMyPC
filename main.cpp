@@ -1,9 +1,10 @@
 #include <ftxui/dom/elements.hpp>
 #include <ftxui/screen/screen.hpp>
 #include <iostream>
+#include <list>
 #include <string>
 #include "monitoringCom.hpp"
-
+#include "Extensions/IniCPP/inicpp.hpp"
 
 
 void gpu_mem_load_in_procent(int* load, int* full, int* variable){
@@ -16,9 +17,13 @@ void gpu_mem_load_in_procent(int* load, int* full, int* variable){
 
 int main(void) {
   using namespace ftxui;
-  std::string cpu_name;
-  std::cout << "Введите наименование процессора из sensors: ";
-  std::cin >> cpu_name;
+  inicpp::IniManager _ini("config.ini");
+  std::string cpu_name = _ini["Advanced"].toString("cpu_name");
+  if (cpu_name.size() < 5){
+    std::cout << "Введите наименование процессора из sensors: ";
+    std::cin >> cpu_name;
+    _ini.modify("Advanced", "cpu_name", cpu_name);
+  }
 
   monitoring metrics;
 
