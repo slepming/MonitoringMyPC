@@ -1,9 +1,11 @@
 #include <ftxui/dom/elements.hpp>
 #include <ftxui/screen/screen.hpp>
-#include <stdexcept>
+#include <iostream>
 #include <string>
 #include "monitoringCom.hpp"
- 
+
+
+
 void gpu_mem_load_in_procent(int* load, int* full, int* variable){
   if (*load < 5 && *full == 0){
     *variable = 0;
@@ -14,11 +16,14 @@ void gpu_mem_load_in_procent(int* load, int* full, int* variable){
 
 int main(void) {
   using namespace ftxui;
-  
+  std::string cpu_name;
+  std::cout << "Введите наименование процессора из sensors: ";
+  std::cin >> cpu_name;
+
   monitoring metrics;
 
   // Получение метрик для процессора
-  int cpu_temp = std::stoi(metrics.get_metrics_cpu_temp());
+  int cpu_temp = std::stoi(metrics.get_metrics_cpu_temp(&cpu_name));
   int cpu_load = std::stoi(metrics.get_metrics_cpu_load());
 
   // Получение метрик для видеокарты/Графического ядра
@@ -50,7 +55,7 @@ int main(void) {
       } 
       }))}
   });
-  auto ryzenWindow = window(text("R5 2600"), ryzen);
+  auto ryzenWindow = window(text(metrics.get_cpu_name()), ryzen);
   auto rxWindow = window(text(gpuName), gpu);
   auto container = vbox(ryzenWindow, rxWindow);
  

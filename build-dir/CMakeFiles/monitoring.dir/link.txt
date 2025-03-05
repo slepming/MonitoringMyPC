@@ -1,1 +1,0 @@
-/usr/bin/c++  -std=c++23 -Wall -Wl,--dependency-file=CMakeFiles/monitoring.dir/link.d CMakeFiles/monitoring.dir/cpuComponent.cpp.o CMakeFiles/monitoring.dir/gpuComponent.cpp.o CMakeFiles/monitoring.dir/main.cpp.o CMakeFiles/monitoring.dir/terminalCommandExecute.cpp.o -o monitoring  /usr/lib/libftxui-screen.a /usr/lib/libftxui-dom.a -ljsoncpp /usr/lib/libftxui-screen.a
